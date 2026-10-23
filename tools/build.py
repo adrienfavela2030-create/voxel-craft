@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Build the overhauled index.html from the original single-file game.
-Original game: /tmp/base.html (user upload). Overhaul JS: /tmp/overhaul.js
+Original game: tools/base-original.html. Overhaul JS: tools/overhaul.js
 Output: index.html in repo root. All artwork is original procedural
 pixel art inspired by Minecraft's style — no Mojang assets are copied.
 """
 import pathlib, re, sys
-base = pathlib.Path('/tmp/base.html').read_text()
-over = pathlib.Path('/tmp/overhaul.js').read_text()
+base = pathlib.Path(__file__).with_name('base-original.html').read_text()
+over = pathlib.Path(__file__).with_name('overhaul.js').read_text()
 s = base
 
 def rep(old, new, n=1):
